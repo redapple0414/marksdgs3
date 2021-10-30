@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Choose : MonoBehaviour
 {
-   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +20,7 @@ public class Choose : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         collision.transform.localScale = new Vector3(0.35f, 0.35f, 0.35f);
+        
     }
     
     

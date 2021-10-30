@@ -94,7 +94,7 @@ public class MobileNet: MonoBehaviour
     }
       public string getClassName2(int classId)
     {
-        if (classId < 0 || className.Length <= classId)
+        if (classId < 0 || className2.Length <= classId)
         {
             return "";
         }
@@ -102,7 +102,7 @@ public class MobileNet: MonoBehaviour
     }
      public string getClassName3(int classId)
     {
-        if (classId < 0 || className.Length <= classId)
+        if (classId < 0 || className3.Length <= classId)
         {
             return "";
         }

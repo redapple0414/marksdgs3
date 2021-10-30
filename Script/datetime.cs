@@ -22,6 +22,7 @@ public class datetime : MonoBehaviour
     }
     void Update()
     {
+        Camerascreen.scene = "earth";
         if (Camerascreen.scene == "earth")
         {
             RectTransform rectTransform = gameObject.GetComponent<RectTransform>();

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class earth : MonoBehaviour,IDragHandler
 {
-
+public static int katikati = 0;
     private AudioSource audioSource2;
     public AudioClip GetAudio2;
    
@@ -31,8 +31,9 @@ public class earth : MonoBehaviour,IDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
-   
+    //this.GetComponent<Chatterscript>().Sethukidasi();
         audioSource2.Play ();
+        earth.katikati = 1;
         if (eventData.position.y <= Screen.height / 2)
         {
              audioSource2.Play ();
@@ -67,6 +68,8 @@ public class earth : MonoBehaviour,IDragHandler
     }
     public void OnScroll()
     {
+        earth.katikati = 1;
+//this.GetComponent<Chatterscript>().Sethukidasi();
         audioSource2.Play ();
        float rotatez = Input.GetAxis("Mouse ScrollWheel");
        this.transform.Rotate(0,0,rotatez*20);

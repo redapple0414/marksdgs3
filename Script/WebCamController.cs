@@ -23,6 +23,7 @@ public class WebCamController : MonoBehaviour
     int height = 224;
     int fps = 30;
     int getok = 0;
+    float[] scores;
     public string markName = "bellmark";
    
     System.DateTime now = System.DateTime.Now;
@@ -132,6 +133,7 @@ public class WebCamController : MonoBehaviour
 
     public void Start()
     {
+          
     
         //   Text score_text = maxScoretext.GetComponent<Text> ();
         //    Text score_text2 = maxScoremarktext.GetComponent<Text> ();
@@ -189,6 +191,8 @@ public class WebCamController : MonoBehaviour
       //  GetComponent<RawImage>().material.mainTexture = webcamTexture;
         webcamTexture.Play();
         getok = 0;
+   
+        
 
 
 
@@ -258,6 +262,7 @@ public class WebCamController : MonoBehaviour
 
     void Update()
     {
+       
         if(gettext.textonoff == 0)
         {
             resultText = "";
@@ -294,10 +299,12 @@ public class WebCamController : MonoBehaviour
         // 入力用テクスチャ準備
 
         //       webcamTexture = new WebCamTexture(devices[0].name, this.width, this.height, this.fps);
+
+        else if(webcamTexture.isPlaying)
+        {
         webcamTexture.GetPixels32(color32);
         texture1.SetPixels32(color32);
         texture1.Apply();
-
 
 
 
@@ -309,10 +316,11 @@ public class WebCamController : MonoBehaviour
         //      (feed.texture as Texture2D).Apply();
 
         // 推論
-        float[] scores;
+      
 
- 
+          
             scores = mobileNet.Inference(texture1);
+        }
     //     }
     //     else if(markName == "yunisehu" ||markName == "Bellmark" ||markName == "foodforspecifiedhealthusesmark" ||markName == "ecomark")
     //     {
@@ -323,7 +331,7 @@ public class WebCamController : MonoBehaviour
     //         scores = mobileNet2.Inference(texture1);
     //     }
 
-
+ 
         // 推論結果
         var maxScore = float.MinValue;
         int classId = -1;
@@ -336,6 +344,7 @@ public class WebCamController : MonoBehaviour
                 classId = i;
             }
         }
+        
 
                if(markName == "hane" || markName == "Redcup" || markName == "AEDmark" || markName == "Maternitymark" || markName == "Toiletmark" || markName == "GreenEnergymark" || markName == "Kuruminmark" || markName == "JISmark" || markName == "Helpmark" || markName == "Evacuationsitemark" || markName == "Ecolabelofthesea" || markName == "FSCmark" || markName == "Orangeribbon" || markName == "SDGsmark")
         {
@@ -360,10 +369,10 @@ public class WebCamController : MonoBehaviour
         
              //    Debug.Log(maxScore);
         
-            
+           
         // MonoBehaviour.Destroy(webcamTexture);
 
-
+    
 
         // 描画用テキスト構築
         
@@ -1027,9 +1036,9 @@ public class WebCamController : MonoBehaviour
 
               //     resultText = resultText + "ok:" + getok.ToString("F3") + "\n";
 
-                         if(getok == 1)
+                         if(getok == 1 && webcamTexture.isPlaying)
                          {
-               //          getok = 2;
+                         getok = 2;
                             GameObject.Find("Shot Main Camera").GetComponent<CameraScreenShotCapturer>().CaptureScreenShot(markName + ".png");
              //   Texture2D texture2 = new Texture2D((Screen.width/3+Screen.width/9)*7/10, (Screen.height/2+Screen.height/8)*7/10);
                 Texture2D texture2 = new Texture2D(Screen.width*30/100, Screen.height*45/100);

@@ -41,15 +41,20 @@ public class Camerascreen: MonoBehaviour
 
     void Start()
     {
-        this.canvasGroup = this.GetComponent<CanvasGroup>();
+      
+   
+   
+     Camerascreen.scene = "earth";
+ this.canvasGroup = this.GetComponent<CanvasGroup>();
     　this.canvasGroup.DOFade(0.0f, this.DurationSeconds).SetEase(this.EaseType).SetLoops(-1, LoopType.Yoyo);
      Invoke("MAX", 5);
+     
     }
     
 
     void Update()
     {
-     Debug.Log(Chatterscript.selectmarkname);
+//     Debug.Log(Chatterscript.selectmarkname);
     }
     
     private void MAX()

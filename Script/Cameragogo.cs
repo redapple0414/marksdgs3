@@ -1,22 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-public class sri : MonoBehaviour
+
+public class Cameragogo : MonoBehaviour
 {
-    Slider hpSlider;
-    public static float ninsiki = 1;
     // Start is called before the first frame update
     void Start()
     {
-        hpSlider = GetComponent<Slider>();
-        hpSlider.value = ninsiki;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-         ninsiki = hpSlider.value;
-  
+        Camerascreen.scene = "Camera";
     }
 }

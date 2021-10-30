@@ -2,7 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
+using Unity.Barracuda;
 using UnityEngine.SceneManagement;
+using System.Text;
+using System;
+
 
 public class setteiscene : MonoBehaviour
 {
@@ -32,14 +37,15 @@ public class setteiscene : MonoBehaviour
             objGet = GameObject.Find("AICamera(Clone)");   
             Destroy(objGet);
 
-            if(setteiscene.uraomote == 1)
+            if(WebCamTexture.devices.Length > setteiscene.uraomote)
             {
-                setteiscene.uraomote = 0;
+                 setteiscene.uraomote ++;
             }
             else
             {
-                 setteiscene.uraomote = 1;
+                setteiscene.uraomote = 0;
             }
+            
             GameObject obj2 = (GameObject)Resources.Load("AICamera");
             GameObject obj3 = Instantiate(obj2, new Vector3(0.0f, 2.0f, 0.0f), Quaternion.identity);
             obj3.transform.parent = oya.transform;

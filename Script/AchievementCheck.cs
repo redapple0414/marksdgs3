@@ -33,7 +33,7 @@ public class AchievementCheck : MonoBehaviour
         for (int i = 0; i < Chatterscripts.Length; i++)
         {
            
-            if (Chatterscripts[i].Achievement != 1)
+            if (Chatterscripts[i].Achievement < 1 && Chatterscripts[i].Achievement2 < 1)
             {
                 PlayerPrefs.SetInt ("Clear", 0);
              
@@ -50,41 +50,48 @@ public class AchievementCheck : MonoBehaviour
 
     void Update()
     {
-       CheckAchievement();
+         for (int i = 0; i < Chatterscripts.Length; i++)
+        {
+           
+            Debug.Log(Chatterscripts[i].Achievement);
+            
+        }
+        CheckAchievement();
        
 
-        if(PlayerPrefs.GetInt ("Clear") == 1)
-        {
+         if(PlayerPrefs.GetInt ("Clear") == 1)
+         {
 
-            hanabi.SetActive(true);
-            this.transform.Rotate(0, 0, -0.5f);
+             hanabi.SetActive(true);
+             this.transform.Rotate(0, 0, -0.5f);
              Choose.SetActive(false);
-              AchievementCheck.ClearOK = true;
+               AchievementCheck.ClearOK = true;
 
               earthkesu.SetActive(false);
-              hukidashikesu.SetActive(false);
+               hukidashikesu.SetActive(false);
               
         }
-        else
-        {
+         else
+         {
 
              Choose.SetActive(true);
              hanabi.SetActive(false);
               AchievementCheck.ClearOK = false;
 
            
-        }
+         }
+         
 
 
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Debug.Log("Achievement = 1");
-            for (int i = 0; i < Chatterscripts.Length; i++)
-            {
-                PlayerPrefs.SetInt ("Clear", 1);
-               PlayerPrefs.SetInt(Chatterscripts[i].markName,1);
-            }
-        }
+         if (Input.GetKeyDown(KeyCode.A))
+         {
+             Debug.Log("Achievement = 1");
+             for (int i = 0; i < Chatterscripts.Length; i++)
+             {
+               //  PlayerPrefs.SetInt ("Clear", 1);
+                PlayerPrefs.SetInt(Chatterscripts[i].markName,1);
+             }
+         }
 
     }
 }

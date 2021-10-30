@@ -47,7 +47,7 @@ public class Explanation : MonoBehaviour
             MainImage.sprite = Explanationimage1;
             MainImage.GetComponent<Image>().color = new Color(255 / 255.0f, 255 / 255.0f, 255 / 255.0f, 255 / 125.5f);
         }
-
+Camerascreen.scene = "Picturebook";
     }
     public void SetExplanation(Sprite sprite)
     {
@@ -90,6 +90,7 @@ public class Explanation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       Camerascreen.scene = "Picturebook";
         if (this.Achievement == 0)
         {
             this.transform.Find("GetCamera").gameObject.SetActive(false);

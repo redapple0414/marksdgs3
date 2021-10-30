@@ -36,8 +36,7 @@ public class hukidasi : MonoBehaviour
     {
 
 
-        if (this.istalking == false)
-        {
+      
            // this.Helpimage.SetActive(false);
            
 
@@ -50,15 +49,15 @@ public class hukidasi : MonoBehaviour
 
 
             //this.hukidasiObject = GameObject.Find("hukidasi");
-            Invoke("Help", 7);
-            Invoke("Resettalking", 7);
-            hukidasiimage.transform.DOScale(new Vector3(0f, 0f, 0f),0f);
-            Childimage.transform.DOLocalMove(new Vector3(0, 300, 0), 0f);
-            Childimage.transform.DOScale(new Vector3(0.5f, 0.5f, 0.5f), 0f);
-            Childimage.transform.DOLocalMove(new Vector3(-715, -400, 0), 1f);
-            Childimage.transform.DOScale(new Vector3(1, 1, 1), 1f);                         
-            hukidasiimage.transform.DOScale(new Vector3(2f, 4f, 1f), 1f)
-                                   .SetDelay(1f);
+            // Invoke("Help", 7);
+            // Invoke("Resettalking", 7);
+            // hukidasiimage.transform.DOScale(new Vector3(0f, 0f, 0f),0f);
+            // Childimage.transform.DOLocalMove(new Vector3(-100, 300, 0), 0f);
+             Childimage.transform.localScale = new Vector3(1f, 1f, 1f);
+            // Childimage.transform.DOLocalMove(new Vector3(-765, -400, 0), 1f);
+            // Childimage.transform.DOScale(new Vector3(1, 1, 1), 1f);                         
+            // hukidasiimage.transform.DOScale(new Vector3(2f, 4f, 1f), 1f)
+            //                        .SetDelay(1f);
             this.hukidasiimage.SetActive(true);
             //this.hukidasiText.SetActive(true);
             this.namaeimage.SetActive(true);
@@ -66,22 +65,25 @@ public class hukidasi : MonoBehaviour
                 this.speakmarkimage.GetComponent<Image>().sprite = speakmark;
      
             this.speakmarkkimage.GetComponent<Image>().sprite = speakmarkk;
-            Invoke("letspeakmark",2);
+            Debug.Log("dekiruyanaikai");
+         this.speakmarkimage.SetActive(true);
+        
+             this.speakmarkkimage.SetActive(true);
             
-            if (Get == false)
-            {
-                  this.canvasGroup = zukan.GetComponent<CanvasGroup>();
-    　            this.canvasGroup.DOFade(0.0f, this.DurationSeconds/2).SetEase(this.EaseType).SetLoops(18, LoopType.Yoyo);
-    Invoke("MAX", 5);
+    //         if (Get == false)
+    //         {
+    //               this.canvasGroup = zukan.GetComponent<CanvasGroup>();
+    // 　            this.canvasGroup.DOFade(0.0f, this.DurationSeconds/2).SetEase(this.EaseType).SetLoops(18, LoopType.Yoyo);
+    // Invoke("MAX", 5);
   
     
-            }
-            else
-            {
+    //         }
+    //         else
+    //         {
              
-            }
-
-        }
+    //         }
+  earth.katikati = 0;
+        
         
     }
     public void Gethukidasi(string sp)
@@ -194,12 +196,12 @@ public class hukidasi : MonoBehaviour
         }
 
        // this.hukidasiText.GetComponent<TextMeshProUGUI>().text = SpeechEarth1;
-        hukidasiimage.transform.DOScale(new Vector3(0f, 0f, 0f), 0.1f);
-        Childimage.transform.DOLocalMove(new Vector3(0, 300, 0), 0.1f);
-        Childimage.transform.DOScale(new Vector3(0.5f, 0.5f, 0.5f), 0.1f);
-        Childimage.transform.DOLocalMove(new Vector3(-715, -400, 0), 0.1f);
-        Childimage.transform.DOScale(new Vector3(1.65f, 1.65f, 1), 0.1f);
-        hukidasiimage.transform.DOScale(new Vector3(2f, 4f, 1f), 0.1f)
+        hukidasiimage.transform.DOScale(new Vector3(0f, 0f, 0f), 1f);
+        Childimage.transform.DOLocalMove(new Vector3(-100, 300, 0), 1f);
+        Childimage.transform.DOScale(new Vector3(0.5f, 0.5f, 0.5f), 1f);
+        Childimage.transform.DOLocalMove(new Vector3(-765, -400, 0), 1f);
+        Childimage.transform.DOScale(new Vector3(1.65f, 1.65f, 1), 1f);
+        hukidasiimage.transform.DOScale(new Vector3(2f, 5f, 1f), 1f)
                                .SetDelay(0f);
         this.hukidasiimage.SetActive(true);
         //this.hukidasiText.SetActive(true);
